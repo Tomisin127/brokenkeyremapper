@@ -5,7 +5,7 @@ const features = [
   {
     icon: Brain,
     title: "Smart Prediction Engine",
-    description: "The app knows what letter you probably need next based on common English words and letter patterns. Just press your working key and it types the right character for you.",
+    description: "The application knows what letter you probably need next based on common English words and letter patterns. Just press your working key and it types the right character for you.",
   },
   {
     icon: Layers,
@@ -25,7 +25,7 @@ const features = [
   {
     icon: BarChart3,
     title: "Accurate Predictions",
-    description: "The app tracks what you've been typing to make better guesses. If the wrong letter appears, just press Shift to fix it instantly.",
+    description: "The application tracks what you've been typing to make better guesses. If the wrong letter appears, just press Shift to fix it instantly.",
   },
   {
     icon: Zap,

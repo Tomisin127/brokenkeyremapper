@@ -3,7 +3,7 @@ import { Download, Settings, Type, RotateCcw } from "lucide-react";
 import brokenKeyboard from "@/assets/broken-keyboard.png";
 
 const steps = [
-  { icon: Download, title: "Download and Run", description: "Download the small program file and open it. No installation needed." },
+  { icon: Download, title: "Download and Run", description: "Download the small application file and open it. No installation needed." },
   { icon: Settings, title: "Map Your Keys", description: "Tell the app which keys are broken and which working key should replace them." },
   { icon: Type, title: "Start Typing", description: "Type normally. The prediction engine figures out which broken key you need and types it for you." },
   { icon: RotateCcw, title: "Cycle with Shift", description: "If the wrong letter appears, hold Shift and press your key to cycle through the other options." },
