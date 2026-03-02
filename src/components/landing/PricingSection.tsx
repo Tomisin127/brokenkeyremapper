@@ -9,9 +9,9 @@ const plans = [
     priceLabel: "one-time payment",
     description: "The complete experience. Predictive engine, cycling, unlimited mappings, and lifetime updates.",
     features: [
-      "Unlimited key mappings",
+      "Unlimited key mappings (one key to many)",
       "Predictive engine with dictionary and bigram support",
-      "Shift + key cycling for multiple outputs",
+      "Shift + key cycling (switch between mapped outputs)",
       "Priority support",
       "Lifetime updates",
       "Config file export",

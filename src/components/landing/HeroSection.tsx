@@ -34,7 +34,7 @@ const HeroSection = () => {
               <Button variant="hero" size="lg" className="text-base px-8 py-6" asChild>
                 <a href="#pricing">
                   <Download className="mr-2 h-5 w-5" />
-                  Download Now - Free Trial
+                  Get Started
                 </a>
               </Button>
               <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" asChild>
