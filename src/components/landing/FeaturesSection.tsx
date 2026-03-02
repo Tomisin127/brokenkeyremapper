@@ -4,33 +4,33 @@ import { Brain, Layers, Settings, Keyboard, BarChart3, Zap } from "lucide-react"
 const features = [
   {
     icon: Brain,
-    title: "Predictive Typing Engine",
-    description: "Uses English dictionary + bigram frequency to predict the most likely next character. Types for you when your physical keys are broken.",
+    title: "Smart Prediction Engine",
+    description: "The app knows what letter you probably need next based on common English words and letter patterns. Just press your working key and it types the right character for you.",
   },
   {
     icon: Layers,
-    title: "Single Key → Multiple Keys",
-    description: "One working key can be mapped to all broken keys. Cycle outputs easily using Shift + key.",
+    title: "One Key Covers Many",
+    description: "Map a single working key to all your broken ones. Press Shift + that key to cycle through the other characters whenever the prediction picks the wrong one.",
   },
   {
     icon: Settings,
-    title: "Dynamic Key Mapping",
-    description: "Add, edit, remove mappings anytime. Save your configuration in an easy-to-edit INI file.",
+    title: "Easy Key Mapping",
+    description: "Add, edit, or remove key mappings anytime through a simple interface. Your settings are saved automatically so they persist between sessions.",
   },
   {
     icon: Keyboard,
-    title: "Fully Customizable",
-    description: "Works with letters, numbers, symbols, and common keyboard keys. Supports multiple layouts and predictive suggestions.",
+    title: "Works With Any Key",
+    description: "Letters, numbers, symbols, arrow keys, function keys, and more. If a key on your keyboard is broken, this tool can handle it.",
   },
   {
     icon: BarChart3,
-    title: "Intelligent Buffer System",
-    description: "Tracks what you've typed for better predictions. Automatically backspaces if you change prediction manually.",
+    title: "Accurate Predictions",
+    description: "The app tracks what you've been typing to make better guesses. If the wrong letter appears, just press Shift to fix it instantly.",
   },
   {
     icon: Zap,
-    title: "Lightweight & Portable",
-    description: "Single EXE, no installation required. Works on Windows PCs out of the box.",
+    title: "Lightweight and Portable",
+    description: "A single small file you can run from anywhere. No installation, no setup wizards, and no bloat. Works on any Windows PC.",
   },
 ];
 
@@ -55,11 +55,11 @@ const FeaturesSection = () => {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Why Broken Key Remapper Works{" "}
-            <span className="gradient-text">Better Than Anything Else</span>
+            Why People Choose{" "}
+            <span className="gradient-text">Broken Key Remapper</span>
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            A smart combination of predictive AI and intuitive mapping that gets you typing again in seconds.
+            A simple tool that solves a frustrating problem. Keep typing normally even when your keyboard is damaged.
           </p>
         </motion.div>
 

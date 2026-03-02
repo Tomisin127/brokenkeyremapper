@@ -3,12 +3,12 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "I can type again even though my keyboard was half broken. This software saved me!",
+    quote: "Half my keyboard was broken and I couldn't afford a new laptop. This tool let me keep working like nothing happened.",
     name: "Alex M.",
     role: "Tech Enthusiast",
   },
   {
-    quote: "Predictive typing is insane — it feels like magic. I didn't need a new laptop after all.",
+    quote: "The prediction is surprisingly accurate. I barely need to use the Shift key to correct anything. Feels seamless.",
     name: "Sarah K.",
     role: "Office Worker",
   },
