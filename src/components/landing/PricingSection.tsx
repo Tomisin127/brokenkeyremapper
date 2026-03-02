@@ -26,6 +26,7 @@ const plans = [
     features: ["One-to-one key remapping", "Works with any key", "Lightweight single file", "Free forever"],
     cta: "Download Free",
     featured: false,
+    downloadUrl: "https://drive.google.com/file/d/1la8oZuGpvHiwyO-V1CHNu6wbdtDrun28/view?usp=drivesdk",
   },
 ];
 
@@ -86,7 +87,7 @@ const PricingSection = () => {
                 className="w-full py-5"
                 asChild
               >
-                <a href="#">{plan.cta}</a>
+                <a href={plan.downloadUrl || "#"} target={plan.downloadUrl ? "_blank" : undefined} rel={plan.downloadUrl ? "noopener noreferrer" : undefined}>{plan.cta}</a>
               </Button>
             </motion.div>
           ))}
