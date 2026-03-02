@@ -4,21 +4,28 @@ import { Check, Sparkles } from "lucide-react";
 
 const plans = [
   {
-    name: "7-Day Free Trial",
-    price: "Free",
-    description: "Try it out with no commitment and no credit card.",
-    features: ["Up to 3 key mappings", "Full prediction engine", "All features unlocked", "7 days of access"],
-    cta: "Start Free Trial",
-    featured: false,
-  },
-  {
-    name: "Full Version",
+    name: "v1.1 Full Version",
     price: "$10",
     priceLabel: "one-time payment",
-    description: "Unlock everything. Pay once, use forever.",
-    features: ["Unlimited key mappings", "Full prediction engine", "Priority support", "Lifetime updates", "Config file export"],
+    description: "The complete experience. Predictive engine, cycling, unlimited mappings, and lifetime updates.",
+    features: [
+      "Unlimited key mappings",
+      "Predictive engine with dictionary and bigram support",
+      "Shift + key cycling for multiple outputs",
+      "Priority support",
+      "Lifetime updates",
+      "Config file export",
+    ],
     cta: "Buy Now - $10",
     featured: true,
+  },
+  {
+    name: "v1 Basic Version",
+    price: "Free",
+    description: "Simple 1-to-1 key remapping. Great if you just need the basics.",
+    features: ["One-to-one key remapping", "Works with any key", "Lightweight single file", "Free forever"],
+    cta: "Download Free",
+    featured: false,
   },
 ];
 
@@ -37,7 +44,7 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Start with a free trial or get the full version for a one-time price of $10.
+            Get started with the free basic version, or unlock the full predictive engine with v1.1.
           </p>
         </motion.div>
 
