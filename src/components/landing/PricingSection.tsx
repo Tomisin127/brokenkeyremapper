@@ -6,8 +6,8 @@ const plans = [
   {
     name: "7-Day Free Trial",
     price: "Free",
-    description: "Try before you buy — no credit card needed.",
-    features: ["Up to 3 key mappings", "Full prediction engine", "All features unlocked", "7-day access"],
+    description: "Try it out with no commitment and no credit card.",
+    features: ["Up to 3 key mappings", "Full prediction engine", "All features unlocked", "7 days of access"],
     cta: "Start Free Trial",
     featured: false,
   },
@@ -15,9 +15,9 @@ const plans = [
     name: "Full Version",
     price: "$10",
     priceLabel: "one-time payment",
-    description: "Unlock everything. Forever.",
-    features: ["Unlimited key mappings", "Full prediction engine", "Priority support", "Lifetime updates", "INI config export"],
-    cta: "Buy Now — $10",
+    description: "Unlock everything. Pay once, use forever.",
+    features: ["Unlimited key mappings", "Full prediction engine", "Priority support", "Lifetime updates", "Config file export"],
+    cta: "Buy Now - $10",
     featured: true,
   },
 ];
@@ -37,7 +37,7 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Start with the free trial or get the full version for a one-time price of $10.
+            Start with a free trial or get the full version for a one-time price of $10.
           </p>
         </motion.div>
 

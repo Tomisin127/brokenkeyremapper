@@ -20,20 +20,21 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <div className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
-              Windows Utility • Lightweight • No Install Required
+              Windows Utility · Lightweight · No Install Required
             </div>
             <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
               Type Anything,{" "}
               <span className="gradient-text">Even on a Broken Keyboard</span>
             </h1>
             <p className="mb-8 max-w-lg text-lg text-muted-foreground md:text-xl">
-              Broken Key Remapper predicts your next keystroke and lets you type all broken keys using just the working ones — no hardware replacement needed.
+              Got broken keys? Broken Key Remapper lets you assign any broken key to a working one. It even predicts
+              what you're trying to type so you barely notice the difference.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <Button variant="hero" size="lg" className="text-base px-8 py-6" asChild>
                 <a href="#pricing">
                   <Download className="mr-2 h-5 w-5" />
-                  Download Now — Free Trial
+                  Download Now - Free Trial
                 </a>
               </Button>
               <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" asChild>

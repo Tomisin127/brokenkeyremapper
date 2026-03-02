@@ -3,10 +3,10 @@ import { Download, Settings, Type, RotateCcw } from "lucide-react";
 import brokenKeyboard from "@/assets/broken-keyboard.png";
 
 const steps = [
-  { icon: Download, title: "Download & Run", description: "Download the lightweight EXE and run it — no installation needed." },
-  { icon: Settings, title: "Map Your Keys", description: "Set your working key(s) and map them to all your broken keys." },
-  { icon: Type, title: "Start Typing", description: "Begin typing normally — the prediction engine takes care of the rest." },
-  { icon: RotateCcw, title: "Cycle with Shift", description: "Use Shift to cycle through alternate outputs for any mapped key." },
+  { icon: Download, title: "Download and Run", description: "Download the small program file and open it. No installation needed." },
+  { icon: Settings, title: "Map Your Keys", description: "Tell the app which keys are broken and which working key should replace them." },
+  { icon: Type, title: "Start Typing", description: "Type normally. The prediction engine figures out which broken key you need and types it for you." },
+  { icon: RotateCcw, title: "Cycle with Shift", description: "If the wrong letter appears, hold Shift and press your key to cycle through the other options." },
 ];
 
 const HowItWorksSection = () => {
@@ -32,7 +32,7 @@ const HowItWorksSection = () => {
             </div>
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/60 to-transparent" />
             <p className="absolute bottom-4 left-4 text-sm font-medium text-foreground/80">
-              Don't replace your keyboard — remap it.
+              Don't replace your keyboard. Remap it.
             </p>
           </motion.div>
 
