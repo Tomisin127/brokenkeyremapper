@@ -45,11 +45,6 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://x.com/PaulRaimi11" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
-                  X (Twitter)
-                </a>
-              </li>
-              <li>
                 <a href="mailto:paul.raimi.pr@gmail.com" className="transition-colors hover:text-foreground">
                   paul.raimi.pr@gmail.com
                 </a>
