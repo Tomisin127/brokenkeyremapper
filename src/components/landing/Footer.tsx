@@ -12,7 +12,7 @@ const Footer = () => {
               Broken Key Remapper
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The simple fix for broken keyboards. Remap, predict, and keep typing.
+              AI-assisted input reconstruction for damaged or limited keyboards. Never let a broken key slow you down.
             </p>
           </div>
 

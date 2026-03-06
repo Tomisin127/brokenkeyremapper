@@ -7,10 +7,10 @@ const plans = [
     name: "v1.1 Full Version",
     price: "$10",
     priceLabel: "one-time payment",
-    description: "The complete experience. Predictive engine, cycling, unlimited mappings, and lifetime updates.",
+    description: "Turn a damaged keyboard into a smart predictive typing system. AI-powered input reconstruction with real-time language inference.",
     features: [
       "Unlimited key mappings (one key to many)",
-      "Predictive engine with dictionary and bigram support",
+      "AI predictive engine with dictionary and bigram support",
       "Shift + key cycling (switch between mapped outputs)",
       "Priority support",
       "Lifetime updates",
@@ -45,7 +45,7 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Get started with the free basic version, or unlock the full predictive engine with v1.1.
+            Start with basic remapping for free, or unlock AI-powered keystroke prediction with v1.1.
           </p>
         </motion.div>
 

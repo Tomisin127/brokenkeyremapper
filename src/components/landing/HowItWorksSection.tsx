@@ -47,7 +47,7 @@ const HowItWorksSection = () => {
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Get Started in <span className="gradient-text">4 Simple Steps</span>
               </h2>
-              <p className="text-muted-foreground">Up and running in under a minute. No technical skills required.</p>
+              <p className="text-muted-foreground">Up and running in under a minute. No technical skills required. Works earlier in the typing process than grammar tools.</p>
             </motion.div>
 
             <div className="space-y-6">

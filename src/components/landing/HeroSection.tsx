@@ -20,15 +20,16 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <div className="mb-4 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
-              Windows Utility · Lightweight · No Install Required
+              AI-Assisted Input Reconstruction · Local · No Install Required
             </div>
             <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              Type Anything,{" "}
-              <span className="gradient-text">Even on a Broken Keyboard</span>
+              Smart Typing for{" "}
+              <span className="gradient-text">Broken Keys</span>
             </h1>
             <p className="mb-8 max-w-lg text-lg text-muted-foreground md:text-xl">
-              Got broken keys? Broken Key Remapper lets you assign any broken key to a working one. It even predicts
-              what you're trying to type so you barely notice the difference.
+              Broken Key Remapper predicts what you intend to type and keeps your workflow uninterrupted.
+              Unlike grammar tools that correct text after it's written, it predicts the physical keys you
+              meant to press, restoring full keyboard usability.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <Button variant="hero" size="lg" className="text-base px-8 py-6" asChild>
