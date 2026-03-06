@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-muted-foreground">Connect</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
+                <a href="https://youtu.be/Ui2eH0DZwqI?si=O2UC-0FP29mTR3zL" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
                   YouTube Demo
                 </a>
               </li>
