@@ -18,6 +18,7 @@ const plans = [
     ],
     cta: "Buy Now - $10",
     featured: true,
+    downloadUrl: "https://paulraimi.gumroad.com/l/fvagsp",
   },
   {
     name: "v1 Basic Version",
