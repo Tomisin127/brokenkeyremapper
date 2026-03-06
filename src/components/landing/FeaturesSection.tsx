@@ -4,33 +4,33 @@ import { Brain, Layers, Settings, Keyboard, BarChart3, Zap } from "lucide-react"
 const features = [
   {
     icon: Brain,
-    title: "Smart Prediction Engine",
-    description: "The application knows what letter you probably need next based on common English words and letter patterns. Just press your working key and it types the right character for you.",
+    title: "AI Keystroke Prediction",
+    description: "Powered by a built-in Small Language Model (SLM) that analyzes a 300,000-word English dictionary and 286,000 bigram frequencies to predict the most likely next character in real time at the keyboard level.",
   },
   {
     icon: Layers,
-    title: "One Key Covers Many",
-    description: "Map a single working key to all your broken ones. Press Shift + that key to cycle through the other characters whenever the prediction picks the wrong one.",
+    title: "1-to-Many Key Mapping",
+    description: "Map multiple broken keys to a single working key, allowing one pressable key to intelligently produce several outputs based on context.",
   },
   {
     icon: Settings,
-    title: "Easy Key Mapping",
-    description: "Add, edit, or remove key mappings anytime through a simple interface. Your settings are saved automatically so they persist between sessions.",
+    title: "Context-Aware Predictions",
+    description: "The engine tracks what you type and uses surrounding words to infer the most probable continuation, delivering smoother and faster typing.",
   },
   {
     icon: Keyboard,
-    title: "Works With Any Key",
-    description: "Letters, numbers, symbols, arrow keys, function keys, and more. If a key on your keyboard is broken, this tool can handle it.",
+    title: "Adaptive Cycling with Shift",
+    description: "Quickly cycle through mapped outputs using Shift + key, giving you precise manual control whenever the prediction needs a correction.",
   },
   {
     icon: BarChart3,
-    title: "Accurate Predictions",
-    description: "The application tracks what you've been typing to make better guesses. If the wrong letter appears, just press Shift to fix it instantly.",
+    title: "Fully Local and Private",
+    description: "Everything runs directly on your computer, completely offline. No internet, cloud services, or external processing required.",
   },
   {
     icon: Zap,
-    title: "Lightweight and Portable",
-    description: "A single small file you can run from anywhere. No installation, no setup wizards, and no bloat. Works on any Windows PC.",
+    title: "Lightweight and Instant",
+    description: "Optimized for keyboard-level performance, delivering fast and reliable predictions without slowing down your system. No installation needed.",
   },
 ];
 
@@ -55,11 +55,11 @@ const FeaturesSection = () => {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-            Why People Choose{" "}
-            <span className="gradient-text">Broken Key Remapper</span>
+            The First Keyboard-Level{" "}
+            <span className="gradient-text">Predictive Engine</span> for Broken Keys
           </h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
-            A simple tool that solves a frustrating problem. Keep typing normally even when your keyboard is damaged.
+            AI-assisted input reconstruction for damaged or limited keyboards. It predicts each key you intend to type next, restoring characters your keyboard can no longer produce.
           </p>
         </motion.div>
 
