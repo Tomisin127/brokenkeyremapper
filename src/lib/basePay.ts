@@ -13,7 +13,7 @@ import {
 /* -------------------------------------------------------------------------- */
 
 // Base Builder Code, registered at https://base.dev/ → Settings → Builder Codes
-export const BUILDER_CODE = "bc_dh0rqw67";
+export const BUILDER_CODE = "bc_g1i8e6zf";
 
 // ERC-8021 attribution suffix built with ox. Produces:
 //   <utf8(codes)> ∥ <codesLength:1> ∥ <schemaId:1 = 0x00> ∥ <0x8021…8021:16>
