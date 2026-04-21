@@ -67,7 +67,7 @@ const PayWithCryptoButton = () => {
       case "ready":
         return "Download again";
       default:
-        return "Pay with Crypto - 0.01 USDC";
+        return `Pay with Crypto - ${PAYMENT_AMOUNT_USDC} USDC`;
     }
   })();
 
