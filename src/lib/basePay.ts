@@ -1,14 +1,22 @@
 import { pay } from "@base-org/account";
-import { Hex } from "ox";
+import { Attribution } from "ox/erc8021";
 
-// Builder Code attribution. This string is appended to the transaction
-// calldata as a hex `dataSuffix` so Base can credit the builder for the
-// payment. See: https://docs.base.org/base-chain/builder-codes/app-developers
+// Base Builder Code for onchain attribution via ERC-8021.
+// Registered at https://base.dev/ -> Settings -> Builder Codes.
 export const BUILDER_CODE = "bc_dh0rqw67";
 
-// Pre-compute the hex suffix for the builder code using the `ox` library.
-// `Hex.fromString` UTF-8 encodes the string and returns a 0x-prefixed hex value.
-export const BUILDER_CODE_DATA_SUFFIX = Hex.fromString(BUILDER_CODE) as `0x${string}`;
+// Build the ERC-8021-compliant data suffix using ox's official helper.
+// This produces:
+//   <utf8(codes)> ∥ <codesLength:1> ∥ <schemaId:1 = 0x00> ∥ <ercMarker:0x8021…8021 (16 bytes)>
+// e.g. for "bc_dh0rqw67" -> 0x62635f64683072717736370b0080218021802180218021802180218021
+//
+// Previously we used Hex.fromString(BUILDER_CODE), which only emitted the raw
+// UTF-8 bytes of the code without the length byte, schemaId, or the 16-byte
+// 0x8021… marker that ERC-8021 parsers (Basescan, base.dev, etc.) scan for.
+// That is why no attribution was showing up in the transaction input data.
+export const BUILDER_CODE_DATA_SUFFIX = Attribution.toDataSuffix({
+  codes: [BUILDER_CODE],
+}) as `0x${string}`;
 
 // Recipient of the USDC payment on Base mainnet.
 export const PAYMENT_RECIPIENT = "0xc0887Adf2411C4DB859e497c1f931C59600b1ec4";
@@ -27,6 +35,11 @@ export type BasePayResult = {
  * it has an onchain transaction hash (returned as `payment.id`), so we can
  * treat a `success: true` result as "payment confirmed onchain".
  *
+ * The ERC-8021 data suffix is attached via the `dataSuffix` option. The SDK
+ * forwards it as the `attribution` / `dataSuffix` capability on
+ * `wallet_sendCalls`, and the Base Account wallet appends it to the
+ * transaction calldata before signing.
+ *
  * Returns the transaction hash and the collected email on success.
  */
 export async function payWithBase(): Promise<BasePayResult> {
@@ -37,9 +50,6 @@ export async function payWithBase(): Promise<BasePayResult> {
     payerInfo: {
       requests: [{ type: "email", optional: false }],
     },
-    // Attribute the payment to our Base Builder Code. The SDK validates and
-    // forwards this as the `dataSuffix` capability on `wallet_sendCalls`, so
-    // the builder code ends up in the transaction input data.
     dataSuffix: BUILDER_CODE_DATA_SUFFIX,
   });
 

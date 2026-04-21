@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
-import CryptoPayCard from "./CryptoPayCard";
+import PayWithCryptoButton from "./PayWithCryptoButton";
 
 const plans = [
   {
     name: "v1.1 Full Version",
     price: "$10",
     priceLabel: "one-time payment",
-    description: "Turn a damaged keyboard into a smart predictive typing system. AI-powered input reconstruction with real-time language inference.",
+    description:
+      "Turn a damaged keyboard into a smart predictive typing system. AI-powered input reconstruction with real-time language inference.",
     features: [
       "Unlimited key mappings (one key to many)",
       "AI predictive engine with dictionary and bigram support",
@@ -17,18 +18,25 @@ const plans = [
       "Lifetime updates",
       "Config file export",
     ],
-    cta: "Buy Now - $10",
+    cta: "Pay via Gumroad",
     featured: true,
     downloadUrl: "https://paulraimi.gumroad.com/l/fvagsp",
+    supportsCrypto: true,
   },
   {
     name: "v1 Basic Version",
     price: "Free",
     description: "Simple 1-to-1 key remapping. Great if you just need the basics.",
-    features: ["One-to-one key remapping", "Works with any key", "Lightweight single file", "Free forever"],
+    features: [
+      "One-to-one key remapping",
+      "Works with any key",
+      "Lightweight single file",
+      "Free forever",
+    ],
     cta: "Download Free",
     featured: false,
     downloadUrl: "https://drive.google.com/file/d/1la8oZuGpvHiwyO-V1CHNu6wbdtDrun28/view?usp=drivesdk",
+    supportsCrypto: false,
   },
 ];
 
@@ -47,11 +55,11 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Start with basic remapping for free, grab v1.1 on Gumroad, or pay with crypto on Base.
+            Start with basic remapping for free, or unlock the full AI-powered v1.1 &mdash; pay with card via Gumroad, or with crypto on Base.
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+        <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -73,7 +81,9 @@ const PricingSection = () => {
               <h3 className="mb-1 font-heading text-xl font-bold">{plan.name}</h3>
               <div className="mb-1 flex items-baseline gap-1">
                 <span className="text-4xl font-bold">{plan.price}</span>
-                {plan.priceLabel && <span className="text-sm text-muted-foreground">{plan.priceLabel}</span>}
+                {plan.priceLabel && (
+                  <span className="text-sm text-muted-foreground">{plan.priceLabel}</span>
+                )}
               </div>
               <p className="mb-6 text-sm text-muted-foreground">{plan.description}</p>
               <ul className="mb-8 space-y-3">
@@ -84,16 +94,26 @@ const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button
-                variant={plan.featured ? "hero" : "hero-outline"}
-                className="w-full py-5"
-                asChild
-              >
-                <a href={plan.downloadUrl || "#"} target={plan.downloadUrl ? "_blank" : undefined} rel={plan.downloadUrl ? "noopener noreferrer" : undefined}>{plan.cta}</a>
-              </Button>
+
+              <div className="space-y-3">
+                <Button
+                  variant={plan.featured ? "hero" : "hero-outline"}
+                  className="w-full py-5"
+                  asChild
+                >
+                  <a
+                    href={plan.downloadUrl || "#"}
+                    target={plan.downloadUrl ? "_blank" : undefined}
+                    rel={plan.downloadUrl ? "noopener noreferrer" : undefined}
+                  >
+                    {plan.cta}
+                  </a>
+                </Button>
+
+                {plan.supportsCrypto && <PayWithCryptoButton />}
+              </div>
             </motion.div>
           ))}
-          <CryptoPayCard index={plans.length} />
         </div>
       </div>
     </section>
