@@ -26,7 +26,7 @@ export const BUILDER_CODE_DATA_SUFFIX = Attribution.toDataSuffix({
 // Payment destination and amount.
 export const PAYMENT_RECIPIENT =
   "0xc0887Adf2411C4DB859e497c1f931C59600b1ec4" as Address;
-export const PAYMENT_AMOUNT_USDC = "0.01";
+export const PAYMENT_AMOUNT_USDC = "10";
 
 // Base mainnet.
 const CHAIN_ID_BASE = 8453;
@@ -88,7 +88,7 @@ function getSdk() {
 /* -------------------------------------------------------------------------- */
 
 /**
- * Kick off a Base Pay checkout for 0.01 USDC on Base mainnet.
+ * Kick off a Base Pay checkout for 10 USDC on Base mainnet.
  *
  * Calls `wallet_sendCalls` directly on the Base Account provider so we can
  * attach the ERC-8021 `dataSuffix` capability using the exact shape the Base
