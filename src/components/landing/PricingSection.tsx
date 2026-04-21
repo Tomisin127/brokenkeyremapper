@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
+import CryptoPayCard from "./CryptoPayCard";
 
 const plans = [
   {
@@ -46,11 +47,11 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Start with basic remapping for free, or unlock AI-powered keystroke prediction with v1.1.
+            Start with basic remapping for free, grab v1.1 on Gumroad, or pay with crypto on Base.
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-3xl gap-8 md:grid-cols-2">
+        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -92,6 +93,7 @@ const PricingSection = () => {
               </Button>
             </motion.div>
           ))}
+          <CryptoPayCard index={plans.length} />
         </div>
       </div>
     </section>

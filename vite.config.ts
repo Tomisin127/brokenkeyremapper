@@ -12,6 +12,9 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  // Expose both VITE_* and NEXT_PUBLIC_* env vars to the client so we can use
+  // the Supabase env vars provided by the Vercel integration.
+  envPrefix: ["VITE_", "NEXT_PUBLIC_"],
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
