@@ -97,7 +97,10 @@ export const TEMPO_STABLECOIN_DECIMALS = Number(
   import.meta.env.VITE_TEMPO_USDC_DECIMALS ?? 6,
 );
 
-export const TEMPO_PAYMENT_AMOUNT = "10"; // 10 USDC, mirrors the Base Pay flow.
+// Test amount per the user's spec. Override with VITE_TEMPO_PAYMENT_AMOUNT.
+export const TEMPO_PAYMENT_AMOUNT = (
+  (import.meta.env.VITE_TEMPO_PAYMENT_AMOUNT as string | undefined) ?? "0.0001"
+).trim();
 
 export const TEMPO_NETWORK_LABEL = USE_TESTNET
   ? "tempo-moderato"
@@ -283,12 +286,63 @@ export async function payWithTempo(): Promise<TempoPayResult> {
     transport: http(),
   });
 
-  const txHash = await wallet.writeContract({
-    address: TEMPO_STABLECOIN_ADDRESS,
-    abi: TIP20_ABI,
-    functionName: "transferWithMemo",
-    args: [TEMPO_RECIPIENT_ADDRESS, amount, memo],
-  });
+  // Some wallets on custom chains (notably TokenPocket on Tempo) don't
+  // auto-estimate gas and broadcast with gasLimit=0, which the network
+  // rejects with "gasLimit is too low". Estimate explicitly with a 25%
+  // buffer and a generous hard floor so the tx always has enough headroom.
+  // Tempo TIP-20 transferWithMemo costs ~22-30k gas in practice.
+  const HARD_FLOOR = 120_000n;
+  let gas: bigint;
+  let useMemoVariant = true;
+  try {
+    const estimated = await publicClient.estimateContractGas({
+      account: from,
+      address: TEMPO_STABLECOIN_ADDRESS,
+      abi: TIP20_ABI,
+      functionName: "transferWithMemo",
+      args: [TEMPO_RECIPIENT_ADDRESS, amount, memo],
+    });
+    gas = (estimated * 125n) / 100n;
+    if (gas < HARD_FLOOR) gas = HARD_FLOOR;
+  } catch (err) {
+    // The contract may not implement transferWithMemo. Fall back to plain
+    // ERC-20 transfer — the order id will still be persisted off-chain.
+    // eslint-disable-next-line no-console
+    console.warn(
+      "[tempoPay] transferWithMemo estimateGas failed, falling back to transfer:",
+      err,
+    );
+    useMemoVariant = false;
+    try {
+      const estimated = await publicClient.estimateContractGas({
+        account: from,
+        address: TEMPO_STABLECOIN_ADDRESS,
+        abi: TIP20_ABI,
+        functionName: "transfer",
+        args: [TEMPO_RECIPIENT_ADDRESS, amount],
+      });
+      gas = (estimated * 125n) / 100n;
+      if (gas < HARD_FLOOR) gas = HARD_FLOOR;
+    } catch {
+      gas = HARD_FLOOR;
+    }
+  }
+
+  const txHash = useMemoVariant
+    ? await wallet.writeContract({
+        address: TEMPO_STABLECOIN_ADDRESS,
+        abi: TIP20_ABI,
+        functionName: "transferWithMemo",
+        args: [TEMPO_RECIPIENT_ADDRESS, amount, memo],
+        gas,
+      })
+    : await wallet.writeContract({
+        address: TEMPO_STABLECOIN_ADDRESS,
+        abi: TIP20_ABI,
+        functionName: "transfer",
+        args: [TEMPO_RECIPIENT_ADDRESS, amount],
+        gas,
+      });
 
   // 5. Wait for confirmation and verify the log.
   const receipt = await publicClient.waitForTransactionReceipt({
@@ -299,23 +353,18 @@ export async function payWithTempo(): Promise<TempoPayResult> {
     throw new Error("Tempo transaction reverted.");
   }
 
-  const transferLogs = parseEventLogs({
+  // Validate against TransferWithMemo first (memo-aware path). Fall back to
+  // the standard Transfer event when the token doesn't implement memos.
+  const memoLogs = parseEventLogs({
     abi: TIP20_ABI,
     eventName: "TransferWithMemo",
     logs: receipt.logs,
   });
-
-  const matched = transferLogs.find((log) => {
-    if (
-      log.address.toLowerCase() !== TEMPO_STABLECOIN_ADDRESS.toLowerCase()
-    ) {
+  const memoMatch = memoLogs.find((log) => {
+    if (log.address.toLowerCase() !== TEMPO_STABLECOIN_ADDRESS.toLowerCase()) {
       return false;
     }
-    const args = log.args as {
-      to?: Address;
-      value?: bigint;
-      memo?: Hex;
-    };
+    const args = log.args as { to?: Address; value?: bigint; memo?: Hex };
     return (
       args.to?.toLowerCase() === TEMPO_RECIPIENT_ADDRESS.toLowerCase() &&
       typeof args.value === "bigint" &&
@@ -324,10 +373,30 @@ export async function payWithTempo(): Promise<TempoPayResult> {
     );
   });
 
-  if (!matched) {
-    throw new Error(
-      "Could not verify TransferWithMemo event. Funds may have been sent to the wrong address.",
-    );
+  if (!memoMatch) {
+    const transferLogs = parseEventLogs({
+      abi: TIP20_ABI,
+      eventName: "Transfer",
+      logs: receipt.logs,
+    });
+    const transferMatch = transferLogs.find((log) => {
+      if (
+        log.address.toLowerCase() !== TEMPO_STABLECOIN_ADDRESS.toLowerCase()
+      ) {
+        return false;
+      }
+      const args = log.args as { to?: Address; value?: bigint };
+      return (
+        args.to?.toLowerCase() === TEMPO_RECIPIENT_ADDRESS.toLowerCase() &&
+        typeof args.value === "bigint" &&
+        args.value >= amount
+      );
+    });
+    if (!transferMatch) {
+      throw new Error(
+        "Could not verify the transfer event onchain. Funds may not have reached the merchant address.",
+      );
+    }
   }
 
   return { txHash, from, orderId, memo };
