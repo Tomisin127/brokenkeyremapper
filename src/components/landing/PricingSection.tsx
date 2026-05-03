@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 import PayWithCryptoButton from "./PayWithCryptoButton";
+import PayWithTempoButton from "./PayWithTempoButton";
 
 const plans = [
   {
@@ -55,7 +56,7 @@ const PricingSection = () => {
             Choose Your <span className="gradient-text">Plan</span>
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            Start with basic remapping for free, or unlock the full AI-powered v1.1 &mdash; pay with card via Gumroad, or with crypto on Base.
+            Start with basic remapping for free, or unlock the full AI-powered v1.1 &mdash; pay with card via Gumroad, or with stablecoins on Base or Tempo.
           </p>
         </motion.div>
 
@@ -110,7 +111,12 @@ const PricingSection = () => {
                   </a>
                 </Button>
 
-                {plan.supportsCrypto && <PayWithCryptoButton />}
+                {plan.supportsCrypto && (
+                  <>
+                    <PayWithCryptoButton />
+                    <PayWithTempoButton />
+                  </>
+                )}
               </div>
             </motion.div>
           ))}
