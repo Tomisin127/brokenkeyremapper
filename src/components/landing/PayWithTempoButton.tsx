@@ -35,7 +35,9 @@ const PayWithTempoButton = () => {
 
   async function handleConfirm() {
     if (!EMAIL_RE.test(email.trim())) {
-      setErrorMsg("Please enter a valid email so we can deliver your license.");
+      setErrorMsg(
+        "Please enter a valid email so we can send your download link.",
+      );
       return;
     }
     setErrorMsg(null);
@@ -63,6 +65,41 @@ const PayWithTempoButton = () => {
         );
         toast.error(
           "Payment confirmed, but we couldn't save your record. Keep your tx hash to recover the download.",
+        );
+      }
+
+      // Best-effort: email the download link via Supabase Edge Function.
+      // Failure is non-blocking — the user still gets the inline download
+      // and can recover via tx hash later.
+      try {
+        const { error: emailError } = await supabase.functions.invoke(
+          "send-download-link",
+          {
+            body: {
+              email: email.trim(),
+              txHash: result.txHash,
+              network: TEMPO_NETWORK_LABEL,
+              explorerUrl: tempoExplorerTxUrl(result.txHash),
+            },
+          },
+        );
+        if (emailError) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            "[PayWithTempoButton] Email delivery failed:",
+            emailError,
+          );
+          toast.message(
+            "We couldn't email your download link, but it's open in a new tab. Save your tx hash to recover later.",
+          );
+        } else {
+          toast.success("Download link sent to your email.");
+        }
+      } catch (emailErr) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          "[PayWithTempoButton] Email function threw:",
+          emailErr,
         );
       }
 
@@ -159,7 +196,7 @@ const PayWithTempoButton = () => {
       >
         <div className="space-y-1.5">
           <Label htmlFor="tempo-email" className="text-xs">
-            Email for license delivery
+            Email for download link
           </Label>
           <Input
             id="tempo-email"
