@@ -99,7 +99,7 @@ export const TEMPO_STABLECOIN_DECIMALS = Number(
 
 // Test amount per the user's spec. Override with VITE_TEMPO_PAYMENT_AMOUNT.
 export const TEMPO_PAYMENT_AMOUNT = (
-  (import.meta.env.VITE_TEMPO_PAYMENT_AMOUNT as string | undefined) ?? "0.0001"
+  (import.meta.env.VITE_TEMPO_PAYMENT_AMOUNT as string | undefined) ?? "10"
 ).trim();
 
 export const TEMPO_NETWORK_LABEL = USE_TESTNET
