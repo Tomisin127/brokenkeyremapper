@@ -1,80 +1,51 @@
 import { motion } from "framer-motion";
-import { Download, Settings, Type, RotateCcw } from "lucide-react";
-import brokenKeyboard from "@/assets/broken-keyboard.png";
+import { Settings, ToggleLeft, Type, RotateCcw } from "lucide-react";
 
 const steps = [
-  { icon: Download, title: "Download and Run", description: "Download the small application file and open it. No installation needed." },
-  { icon: Settings, title: "Map Your Keys", description: "Tell the application which keys are broken and which working key should replace them." },
-  { icon: Type, title: "Start Typing", description: "Type normally. The prediction engine figures out which broken key you need and types it for you." },
-  { icon: RotateCcw, title: "Cycle with Shift", description: "If the wrong letter appears, hold Shift and press your key to cycle through the other options." },
+  { icon: Settings, title: "Map your keys", description: "Tell Pro which characters your broken keys can no longer type and which working keys should host them." },
+  { icon: ToggleLeft, title: "Press F12", description: "Enable mapping mode. Toggle it off any time with the same key." },
+  { icon: Type, title: "Type normally", description: "Pro predicts the intended letter from context and emits it as you type." },
+  { icon: RotateCcw, title: "Cycle if needed", description: "Wrong guess? Hold Shift and press your host key to cycle through the alternatives." },
 ];
 
-const HowItWorksSection = () => {
-  return (
-    <section id="how-it-works" className="relative py-24">
-      <div className="container mx-auto px-4">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Image side */}
+const HowItWorksSection = () => (
+  <section id="how-it-works" className="relative scroll-mt-20 py-24">
+    <div className="container mx-auto px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mx-auto mb-14 max-w-2xl text-center"
+      >
+        <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          How it <span className="gradient-text">works</span>
+        </h2>
+        <p className="text-muted-foreground">Set up once in about a minute. No technical background needed.</p>
+      </motion.div>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {steps.map((s, i) => (
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            key={s.title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
+            transition={{ delay: i * 0.1, duration: 0.45 }}
+            className="rounded-2xl border border-border/50 bg-card/50 p-6"
           >
-            <div className="overflow-hidden rounded-2xl border border-border/30">
-              <img
-                src={brokenKeyboard}
-                alt="A broken laptop keyboard with missing and cracked keycaps"
-                className="w-full object-cover"
-                loading="lazy"
-              />
+            <div className="mb-4 flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-heading text-sm font-bold text-primary">
+                {i + 1}
+              </span>
+              <s.icon className="h-5 w-5 text-muted-foreground" />
             </div>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/60 to-transparent" />
-            <p className="absolute bottom-4 left-4 text-sm font-medium text-foreground/80">
-              Don't replace your keyboard. Remap it.
-            </p>
+            <h3 className="mb-2 font-semibold">{s.title}</h3>
+            <p className="text-sm leading-relaxed text-muted-foreground">{s.description}</p>
           </motion.div>
-
-          {/* Steps */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-10"
-            >
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Get Started in <span className="gradient-text">4 Simple Steps</span>
-              </h2>
-              <p className="text-muted-foreground">Up and running in under a minute. No technical skills required. Works earlier in the typing process than grammar tools.</p>
-            </motion.div>
-
-            <div className="space-y-6">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15, duration: 0.5 }}
-                  className="flex gap-4"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-heading text-sm font-bold text-primary">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <h3 className="mb-1 font-semibold">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default HowItWorksSection;
