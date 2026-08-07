@@ -12,22 +12,26 @@ import {
   Lock,
   ToggleLeft,
   KeyRound,
+  Sparkles,
 } from "lucide-react";
 
+
 const features = [
+  { icon: Cpu, title: "AI inside your keyboard", description: "A small language model runs at the keystroke layer and reconstructs the character you meant, with real-time inference on device." },
+  { icon: Sparkles, title: "Bring your own model", description: "Point Pro at any local GGUF model through llama-server and switch models whenever you want a different speed or accuracy trade-off." },
   { icon: Layers, title: "1-to-many key mapping", description: "Map several broken characters to one working key and keep typing with the keys you still have." },
   { icon: Brain, title: "Context-aware prediction", description: "The engine uses what you already typed to choose the most likely next letter." },
-  { icon: BookOpen, title: "Dictionary + bigrams engine", description: "A large English word trie and bigram frequencies score candidates fast, entirely on device." },
+  { icon: BookOpen, title: "Dictionary + bigrams engine", description: "A large English word trie and bigram frequencies score candidates fast, so AI stays optional and the app never stalls." },
   { icon: GraduationCap, title: "Personal learning", description: "Pro builds a private learned-words vocabulary from your own typing over time." },
-  { icon: Cpu, title: "Optional local AI", description: "Connect a local llama-server for harder cases. No cloud service required." },
   { icon: ArrowLeftRight, title: "Shift-cycle control", description: "Hold Shift and press your host key to cycle through alternate candidates instantly." },
   { icon: MonitorSmartphone, title: "Live HUD", description: "A small overlay shows what was typed and where the prediction came from: learned, dictionary or AI." },
   { icon: Wand2, title: "Setup wizard & GUI", description: "Add and edit mappings, manage learned words, tune settings and review typing stats." },
   { icon: FileDown, title: "Import / export config", description: "Move your mappings and preferences between machines in seconds." },
-  { icon: Lock, title: "Privacy first", description: "Predictions run on your device and the optional AI model stays local too." },
+  { icon: Lock, title: "Privacy first", description: "Inference runs on your device and the model file never leaves your machine." },
   { icon: ToggleLeft, title: "F12 toggle", description: "Enable or disable remap mode instantly with a single key." },
   { icon: KeyRound, title: "License system", description: "Gumroad license key, one PC per license, bound to your device." },
 ];
+
 
 const container = { hidden: {}, show: { transition: { staggerChildren: 0.05 } } };
 const item = { hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.4 } } };

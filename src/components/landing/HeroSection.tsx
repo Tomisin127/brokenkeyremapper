@@ -27,15 +27,17 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <div className="mb-5 inline-block rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary">
-              Broken Key Remapper Pro {PRO_VERSION} · Windows 10/11
+              AI inside physical keyboards · Pro {PRO_VERSION} · Windows 10/11
             </div>
             <h1 className="mb-6 text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-6xl">
               The key is dead. <span className="gradient-text">The laptop isn&apos;t.</span>
             </h1>
             <p className="mb-8 max-w-xl text-lg text-muted-foreground">
-              Broken Key Remapper Pro reconstructs missing characters in real time. Map several broken keys onto one
-              working key, then let dictionary, learning, and optional local AI predict what you meant.
+              Broken Key Remapper Pro puts AI inside your physical keyboard. Map several broken keys onto one working
+              key and a small language model reconstructs what you meant with real-time inference on your own machine.
+              Swap in your own GGUF model any time, or run the classic dictionary engine with AI switched off.
             </p>
+
             <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center lg:justify-start">
               <Button variant="hero" size="lg" className="px-8 py-6 text-base" asChild>
                 <a href={GUMROAD_URL} target="_blank" rel="noopener noreferrer">
@@ -52,8 +54,9 @@ const HeroSection = () => {
             </div>
             <p className="mt-5 flex items-center justify-center gap-2 text-xs text-muted-foreground lg:justify-start">
               <Shield className="h-3.5 w-3.5 text-success" />
-              Windows 10/11 · Runs fully local · License via Gumroad
+              Windows 10/11 · Local real-time inference · Bring your own model
             </p>
+
           </motion.div>
 
           {/* Keyboard + prediction HUD visual */}
