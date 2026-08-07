@@ -7,7 +7,7 @@ const rows: { label: string; free: string; pro: string }[] = [
   { label: "1-to-many mapping", free: "Yes, basic", pro: "Yes, full control" },
   { label: "Shift cycle", free: "Yes", pro: "Yes" },
   { label: "Personal learning dictionary", free: "Limited", pro: "Yes, with manager UI" },
-  { label: "Local AI (llama-server)", free: "No", pro: "Optional" },
+  { label: "Local AI inference (llama-server)", free: "No", pro: "Yes, optional, any GGUF model" },
   { label: "HUD, stats and settings", free: "Basic", pro: "Full depth" },
   { label: "License", free: "None needed", pro: "Gumroad key, 1 PC" },
   { label: "Support", free: "Community, as-is", pro: "License-based support" },

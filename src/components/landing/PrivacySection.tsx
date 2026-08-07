@@ -3,11 +3,12 @@ import { ShieldCheck, WifiOff, Cpu, KeyRound, Terminal } from "lucide-react";
 import { NODE_DOWNLOAD_URL } from "@/lib/site";
 
 const points = [
-  { icon: WifiOff, title: "Core prediction works offline", description: "The dictionary, bigram and learning engines never need a network connection." },
-  { icon: Cpu, title: "Optional AI stays local", description: "AI assistance runs through a local llama-server with a GGUF model on your own machine." },
-  { icon: ShieldCheck, title: "No cloud typing pipeline", description: "Your keystrokes are not streamed to a remote service for prediction." },
-  { icon: KeyRound, title: "Internet for activation only", description: "License activation goes through Gumroad. After that, Pro runs locally." },
+  { icon: Cpu, title: "Real-time inference, on device", description: "The language model runs through a local llama-server on your own hardware. Nothing is streamed anywhere." },
+  { icon: KeyRound, title: "Your model, your choice", description: "Load any local GGUF model and change it whenever you want a different speed or accuracy balance." },
+  { icon: WifiOff, title: "Works offline, AI included", description: "Dictionary, bigram, learning and local AI inference all run without a network connection." },
+  { icon: ShieldCheck, title: "No cloud typing pipeline", description: "Your keystrokes are never sent to a remote service. Internet is used only for Gumroad activation." },
 ];
+
 
 const PrivacySection = () => (
   <section className="relative py-24">
