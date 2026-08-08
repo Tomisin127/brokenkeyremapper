@@ -35,7 +35,7 @@ const PricingSection = () => (
         className="mx-auto max-w-lg rounded-2xl border border-primary/30 bg-card/70 p-8 box-glow"
       >
         <h3 className="font-heading text-xl font-bold">Broken Key Remapper Pro</h3>
-        <p className="mb-6 text-sm text-muted-foreground">Version {PRO_VERSION} · Windows 10/11</p>
+        <p className="mb-6 text-sm text-muted-foreground">Version {PRO_VERSION} · Windows</p>
 
         <div className="mb-8 flex items-end gap-2">
           <span className="font-heading text-5xl font-bold">{PRO_PRICE_LABEL}</span>

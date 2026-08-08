@@ -11,7 +11,7 @@ const Footer = () => (
             Broken Key Remapper
           </a>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Predictive key remapping for damaged keyboards. Windows 10/11. Runs locally on your machine.
+            Predictive key remapping for damaged keyboards. Windows. Runs locally on your machine.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ const Footer = () => (
       </div>
 
       <div className="mt-10 border-t border-border/30 pt-6 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Broken Key Remapper. Windows 10/11. All rights reserved.
+        © {new Date().getFullYear()} Broken Key Remapper. Windows. All rights reserved.
       </div>
     </div>
   </footer>
