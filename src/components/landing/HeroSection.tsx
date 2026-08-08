@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, ShoppingCart, Shield } from "lucide-react";
 import { GUMROAD_URL, DOWNLOAD_V11, PRO_VERSION } from "@/lib/site";
+import appInterface from "@/assets/app-interface.jpg.asset.json";
 
 const keyRow = [
   { label: "Q", broken: false },
@@ -67,7 +68,20 @@ const HeroSection = () => {
             className="relative"
           >
             <div className="rounded-2xl border border-border/60 bg-card/60 p-5 box-glow backdrop-blur-sm sm:p-8">
+              <figure className="mb-6">
+                <img
+                  src={appInterface.url}
+                  alt="Broken Key Remapper Pro application window showing key mappings, mapped mode enabled and AI inference ready on port 8765"
+                  width={1200}
+                  height={800}
+                  className="w-full rounded-xl border border-border/60"
+                />
+                <figcaption className="mt-2 text-center text-xs text-muted-foreground">
+                  Real-time local inference, AI ready on port 8765.
+                </figcaption>
+              </figure>
               <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+
                 {keyRow.map((k) => (
                   <div
                     key={k.label}
