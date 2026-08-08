@@ -8,7 +8,7 @@ import {
 import { SUPPORT_EMAIL } from "@/lib/site";
 
 const faqs = [
-  { q: "Does it work on Mac or Linux?", a: "Not yet. Broken Key Remapper Pro is Windows 10/11 only for now." },
+  { q: "Does it work on Mac or Linux?", a: "Not yet. Broken Key Remapper Pro is Windows only for now." },
   { q: "Do I need AI for it to work?", a: "AI is the core of Pro and handles the hardest reconstructions with real-time local inference, but it stays optional. With the model switched off, the dictionary, bigram and learning engines keep working." },
   { q: "Can I change the AI model?", a: "Yes. Pro talks to a local llama-server, so you can load any compatible GGUF model and swap it whenever you want a different speed or accuracy balance." },
   { q: "Is v1.1 still free?", a: "Yes. Version 1.0 and version 1.1 stay free forever and remain downloadable on this page." },
