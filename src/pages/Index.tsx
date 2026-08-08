@@ -4,7 +4,6 @@ import ProblemSection from "@/components/landing/ProblemSection";
 import SolutionSection from "@/components/landing/SolutionSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
-import ScreenshotSection from "@/components/landing/ScreenshotSection";
 import ComparisonSection from "@/components/landing/ComparisonSection";
 import FreeDownloadsSection from "@/components/landing/FreeDownloadsSection";
 import PricingSection from "@/components/landing/PricingSection";
@@ -23,7 +22,6 @@ const Index = () => (
       <SolutionSection />
       <FeaturesSection />
       <HowItWorksSection />
-      <ScreenshotSection />
       <ComparisonSection />
       <FreeDownloadsSection />
       <PricingSection />
