@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, Keyboard, Cpu, Building2 } from "lucide-react
 const audiences = [
   { icon: GraduationCap, title: "Students", description: "Keep writing essays and notes on a damaged school laptop instead of waiting on a repair." },
   { icon: Briefcase, title: "Remote workers", description: "Keep an aging but capable machine in service through a full working day." },
-  { icon: Keyboard, title: "Anyone with 1 to 5 dead keys", description: "Restore the characters you lost without paying for a full keyboard replacement yet." },
+  { icon: Keyboard, title: "Anyone with 1 to 5 dead keys and more", description: "Restore the characters you lost without paying for a full keyboard replacement yet." },
   { icon: Cpu, title: "Power users", description: "Run local AI-assisted input reconstruction and tune the engine to your own writing." },
   { icon: Building2, title: "IT and education teams", description: "Where replacing devices is costly, software can help keep working hardware in rotation longer." },
 ];

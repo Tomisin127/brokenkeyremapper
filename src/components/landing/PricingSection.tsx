@@ -61,9 +61,9 @@ const PricingSection = () => (
         </Button>
 
         <p className="mt-4 text-center text-xs leading-relaxed text-muted-foreground">
-          Payments are processed securely by Gumroad. We do not accept crypto or third-party chain checkouts on this
-          site.
+          Payments are processed securely by Gumroad.
         </p>
+
       </motion.div>
     </div>
   </section>
