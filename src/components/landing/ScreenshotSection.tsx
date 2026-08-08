@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import appInterface from "@/assets/app-interface.jpg.asset.json";
+import appInterface from "@/assets/app-interface.jpg";
 
 const ScreenshotSection = () => (
   <section className="relative py-24">
@@ -27,7 +27,7 @@ const ScreenshotSection = () => (
         className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-border/60 bg-card/60 p-2 box-glow"
       >
         <img
-          src={appInterface.url}
+          src={appInterface}
           alt="Broken Key Remapper Pro application window showing key mappings, mapped mode enabled and AI inference ready on port 8765"
           loading="lazy"
           className="w-full rounded-xl"
