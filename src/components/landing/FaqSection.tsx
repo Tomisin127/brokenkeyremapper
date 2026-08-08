@@ -16,7 +16,7 @@ const faqs = [
   { q: "Can I move my license to a new PC?", a: `Yes. Deactivate the old device through Gumroad or contact support at ${SUPPORT_EMAIL} and we will move it for you.` },
   { q: "Is my typing sent to the cloud?", a: "No. Prediction is local by design. Optional AI runs through a local llama-server on your own machine." },
   { q: "Will it work in every application?", a: "It works system-wide on Windows. Some consoles, terminals and applications running with elevated privileges are more limited." },
-  { q: "What payment methods do you accept?", a: "Gumroad only, which supports cards and its own supported methods. There is no crypto checkout on this site." },
+  { q: "What payment methods do you accept?", a: "Gumroad handles checkout, which supports cards and its other supported payment methods." },
   { q: "What do I need for local MCP support?", a: "The latest version of Node.js must be installed on your computer for local MCP support to run." },
 ];
 
